@@ -1,21 +1,34 @@
 {
-  "name": "nft",
+  "name": "tafscan2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve-pc": "vue-cli-service serve --mode pc",
-    "build-pc": "vue-cli-service build --mode pc",
-    "serve-m": "vue-cli-service serve --mode m",
-    "build-m": "vue-cli-service build --mode m",
+    "local-pc": "vue-cli-service serve --mode local --pc",
+    "local-m": "vue-cli-service serve --mode local --m",
+    "build-pc": "vue-cli-service build --mode development --pc",
+    "build-m": "vue-cli-service build --mode development --m",
+    "build-pc-production": "vue-cli-service build --mode production --pc",
+    "build-m-production": "vue-cli-service build --mode production --m",
+    "build-pc-preview": "vue-cli-service build --mode preview --pc",
+    "build-m-preview": "vue-cli-service build --mode preview --m",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "animate.css": "^4.1.1",
+    "axios": "^0.24.0",
     "core-js": "^3.6.5",
     "vue": "^3.0.0",
+    "vue-i18n": "^9.2.0-beta.19",
+    "vue-reactive-clipboard": "^0.0.4",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vuex": "^4.0.0-0",
+    "webpack-bundle-analyzer": "^4.5.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.176",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -34,6 +47,7 @@
     "prettier": "^2.2.1",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
+    "terser-webpack-plugin": "^4.2.3",
     "typescript": "~4.1.5"
   }
 }
