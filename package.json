@@ -5,6 +5,8 @@
   "scripts": {
     "local-pc": "vue-cli-service serve --mode local --pc",
     "local-m": "vue-cli-service serve --mode local --m",
+    "serve-pc": "vue-cli-service serve --mode development --pc",
+    "serve-m": "vue-cli-service serve --mode development --m",
     "build-pc": "vue-cli-service build --mode development --pc",
     "build-m": "vue-cli-service build --mode development --m",
     "build-pc-production": "vue-cli-service build --mode production --pc",
@@ -24,8 +26,7 @@
     "vue-i18n": "^9.2.0-beta.19",
     "vue-reactive-clipboard": "^0.0.4",
     "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0",
-    "webpack-bundle-analyzer": "^4.5.0"
+    "vuex": "^4.0.0-0"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.176",
@@ -48,6 +49,7 @@
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
     "terser-webpack-plugin": "^4.2.3",
-    "typescript": "~4.1.5"
+    "typescript": "~4.1.5",
+    "vue-tsc": "^0.3.0"
   }
 }

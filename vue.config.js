@@ -7,7 +7,6 @@ const productionGzipExtensions = ['js', 'css']
 
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-console.log( sign );
 const pages = {
   m: {
     entry: 'src/pages/m/main.ts',
@@ -21,7 +20,7 @@ const pages = {
     template: 'src/pages/pc/index.html',
     filename: 'index.html',
     title: 'TAF SCAN',
-    chunks: ['chunk-vendors', 'chunk-common', 'chunk-core', 'chunk-pc'],
+    chunks: ['chunk-vendors', 'chunk-common', 'chunk-core', 'pc'],
   },
 }
 module.exports = {
@@ -37,6 +36,11 @@ module.exports = {
     port: 4070,
     open: true,
     hot: true,
+    proxy: {
+      '/nuvateq': {
+        target: 'http://management-test.nuvawallet.com/'
+      }
+    }
   },
   chainWebpack: (config) => {
     config.plugins.delete('prefetch')

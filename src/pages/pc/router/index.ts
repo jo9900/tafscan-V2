@@ -14,14 +14,14 @@ const routes: Array<RouteRecordRaw> = [
         path: '/',
         name: 'Home',
         component: () =>
-          import(/* webpackChunkName: "chunk-pc" */ '../views/Home/Home.vue'),
+          import(/* webpackChunkName: "pc" */ '../views/Home/Home.vue'),
       },
       {
         path: '/blocks',
         name: 'blocks',
         component: () =>
           import(
-            /* webpackChunkName: "chunk-pc" */ '../views/Blocks/Blocks.vue'
+            /* webpackChunkName: "pc" */ '../views/Blocks/Blocks.vue'
             ),
       }
     ]

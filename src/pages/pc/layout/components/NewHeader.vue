@@ -9,7 +9,6 @@ const { t } = useI18n()
 const {
   linkList,
   route,
-  address,
   isShowMenu,
   isShowLocalMenu,
   triggerMenu,
@@ -19,9 +18,6 @@ const {
 } = init(t)
 
 const store = useStore()
-onMounted(async () => {
-  await store.dispatch('initConnect')
-})
 
 const changeLocale = (lang: 'zh' | 'en') => {
   window.localStorage.setItem('locale', lang)
@@ -31,7 +27,7 @@ const changeLocale = (lang: 'zh' | 'en') => {
 
 <template>
   <div class="header-wrap">
-    <div :class="['header', {'header-border': route.fullPath.includes('center')}]" @mouseleave="triggerLocaleMenu(false)">
+    <div class="header" @mouseleave="triggerLocaleMenu(false)">
       <div class="logo" @click="routerTo('/home')">
         <img class="logo-icon" src="@pc/img/nav_pic_logo@2x.png" />
       </div>

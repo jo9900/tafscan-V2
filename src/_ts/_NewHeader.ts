@@ -30,39 +30,6 @@ export const init = (t: any) => {
     // await router.push('/center')
   }
 
-  let address = ref('')
-  window.addEventListener('beforeunload', () => {
-    if (store.state.nftData)
-      localStorage.setItem('nftData', JSON.stringify(store.state.nftData))
-  })
-  window.addEventListener('load', async () => {
-    let nftData = localStorage.getItem('nftData')
-    if (nftData && JSON.parse(nftData)) {
-      store.commit('SAVE_NFTDATA', JSON.parse(nftData))
-    }
-    if (
-      localStorage.getItem('uAuthorization') &&
-      localStorage.getItem('account')
-    ) {
-      await store.dispatch('initConnect')
-      await store.dispatch('connect')
-    }
-  })
-
-  watch(
-    () => store.state.wallet.account,
-    (cur, old) => {
-      if (cur) {
-        address.value = maskingAddress(localStorage.getItem('account'), 2)
-      } else {
-        address.value = ''
-      }
-    },
-    {
-      immediate: true,
-    }
-  )
-
   const router = useRouter()
   const routerTo = (path: string) => {
     router.push(path)
@@ -80,7 +47,6 @@ export const init = (t: any) => {
   return {
     linkList,
     route,
-    address,
     isShowMenu,
     isShowLocalMenu,
     triggerMenu,
