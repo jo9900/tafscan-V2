@@ -45,9 +45,7 @@ router.beforeEach((to, from, next) => {
     clearInterval(i)
   }
   store.commit('INIT_MSG_CONFIG')
-  if (to.meta && to.meta.isAuthenticated && !localStorage.getItem('account'))
-    next({ name: 'Home' })
-  else next()
+  next()
 })
 router.beforeEach((to, from, next) => {
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {

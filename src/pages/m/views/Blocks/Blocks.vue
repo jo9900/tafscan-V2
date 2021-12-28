@@ -1,12 +1,11 @@
-<script setup lang="ts">
 
+<script setup lang="ts">
 
 </script>
 
 <template>
-<div>this is home</div>
+blocks
 </template>
-
 
 <style scoped lang="stylus">
 

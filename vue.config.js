@@ -7,7 +7,7 @@ const productionGzipExtensions = ['js', 'css']
 
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-
+console.log( sign );
 const pages = {
   m: {
     entry: 'src/pages/m/main.ts',
