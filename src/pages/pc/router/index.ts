@@ -17,13 +17,77 @@ const routes: Array<RouteRecordRaw> = [
           import(/* webpackChunkName: "pc" */ '../views/Home/Home.vue'),
       },
       {
-        path: '/blocks',
-        name: 'blocks',
+        path: '/block',
+        name: 'block',
         component: () =>
           import(
-            /* webpackChunkName: "pc" */ '../views/Blocks/Blocks.vue'
+            /* webpackChunkName: "pc" */ '../views/Block/Block.vue'
             ),
-      }
+      },
+      {
+        path: '/tx',
+        name: 'tx',
+        component: () =>
+          import(
+            /* webpackChunkName: "pc" */ '../views/Tx/Tx.vue'
+            ),
+      },
+      {
+        path: '/account',
+        name: 'account',
+        component: () =>
+          import(
+            /* webpackChunkName: "pc" */ '../views/Account/Account.vue'
+            ),
+      },
+      {
+        path: '/fptoken',
+        name: 'fptoken',
+        component: () =>
+          import(
+            /* webpackChunkName: "pc" */ '../views/FPToken/FPToken.vue'
+            ),
+      },
+      {
+        path: '/nft',
+        name: 'nft',
+        component: () =>
+          import(
+            /* webpackChunkName: "pc" */ '../views/Nft/Nft.vue'
+            ),
+      },
+      {
+        path: '/node',
+        name: 'node',
+        component: () =>
+          import(
+            /* webpackChunkName: "pc" */ '../views/Node/Node.vue'
+            ),
+      },
+      {
+        path: '/vote',
+        name: 'vote',
+        component: () =>
+          import(
+            /* webpackChunkName: "pc" */ '../views/Vote/Vote.vue'
+            ),
+      },
+      {
+        path: '/proposal',
+        name: 'proposal',
+        component: () =>
+          import(
+            /* webpackChunkName: "pc" */ '../views/Proposal/Proposal.vue'
+            ),
+      },
+      {
+        path: '/committee',
+        name: 'committee',
+        component: () =>
+          import(
+            /* webpackChunkName: "pc" */ '../views/Committee/Committee.vue'
+            ),
+      },
     ]
   },
   {

@@ -36,27 +36,26 @@ window.addEventListener('scroll', switchState)
   position relative
   background #fff
   z-index 1 // web3modal是2
-$topSpace = 146px
+$topSpace = 60px
 .pt140
   padding-top $topSpace
 .header-wrap
   height $topSpace
 .scroll-status
-  height 100px
   animation: .5s  narrow linear 1
 
 @keyframes narrow {
   0%{
-    height $topSpace
+    height 70px
   }
   50%{
-    height 126px
+    height 60px
   }
   70%{
-    height 116px
+    height 55px
   }
   100%{
-    height 100px
+    height 60px
   }
 }
 .initial-status
@@ -67,13 +66,13 @@ $topSpace = 146px
 
 @keyframes expand {
   0%{
-    height 110px
+    height 45px
   }
   50%{
-    height 116px
+    height 50px
   }
   70%{
-    height 126px
+    height 55px
   }
   100%{
     height $topSpace
