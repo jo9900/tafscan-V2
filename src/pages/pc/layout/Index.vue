@@ -34,7 +34,7 @@ window.addEventListener('scroll', switchState)
 <style lang="stylus">
 .main
   position relative
-  background #fff
+  background: #F0F2F5;
   z-index 1 // web3modal是2
 $topSpace = 60px
 .pt140

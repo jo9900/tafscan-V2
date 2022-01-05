@@ -6,3 +6,5 @@ if (!localStorage.getItem('locale')) {
   }
 }
 export const currentLocale = localStorage.getItem('locale') || 'en'
+export const unit = 'TAFT'
+export const unitUSD = 'USD'
