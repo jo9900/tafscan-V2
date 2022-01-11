@@ -162,12 +162,12 @@ const more = () => {
           <div>区块</div>
           <div>交易</div>
           <div>出块节点</div>
-          <div class="text-right">时间</div>
+          <div>时间</div>
         </div>
         <ul class="tbody">
           <li v-for="item in 9" class="trow">
             <div class="tcell table-blue">
-              1165201
+              <span :class="true? 'purple-tag' : 'yellow-tag'">1165201</span>
             </div>
             <div class="tcell table-blue">
               15
@@ -175,7 +175,7 @@ const more = () => {
             <div class="tcell table-blue">
               MathWallet
             </div>
-            <div class="tcell table-default text-right">
+            <div class="tcell table-default">
               10 secs ago
             </div>
           </li>
@@ -194,7 +194,7 @@ const more = () => {
           <div>从</div>
           <div>到</div>
           <div>Txn Fee</div>
-          <div class="text-right">时间</div>
+          <div>时间</div>
         </div>
         <ul class="tbody">
           <li v-for="item in 9" class="trow">
@@ -210,7 +210,7 @@ const more = () => {
             <div class="tcell table-default">
               32 TAFT
             </div>
-            <div class="tcell table-default text-right">
+            <div class="tcell table-default">
               10 secs ago
             </div>
           </li>
@@ -233,7 +233,7 @@ const more = () => {
         <div>节点质押</div>
         <div>总得票</div>
         <div>投票分成比例</div>
-        <div class="text-right">最新出块</div>
+        <div>最新出块</div>
       </div>
       <ul class="tbody">
         <li v-for="item in 9" class="trow">
@@ -241,13 +241,21 @@ const more = () => {
             1
           </div>
           <div class="tcell table-blue">
-            验证节点
+            <span :class="true? 'purple-border' : 'yellow-border'">验证节点</span>
           </div>
           <div class="tcell table-blue">
             MathWallet
           </div>
-          <div class="tcell">
-
+          <div class="tcell media-cell">
+            <div>
+              <img class="disabled-icon" src="@pc/img/telegram_d@2x.webp" alt="telegram">
+            </div>
+            <div>
+              <img src="@pc/img/facebook_d@2x.webp" alt="facebook">
+            </div>
+            <div>
+              <img src="@pc/img/twitter_d@2x.webp" alt="twitter">
+            </div>
           </div>
           <div class="tcell table-default">
             842,331 TAFT
@@ -258,7 +266,7 @@ const more = () => {
           <div class="tcell table-default">
             3.01%
           </div>
-          <div class="tcell table-blue text-right">
+          <div class="tcell table-blue">
             1165201
           </div>
         </li>
@@ -471,30 +479,51 @@ const more = () => {
     margin-left 17px
     height 24px
     margin-bottom 18px
-.table-wrap
-  .thead
-    width 100%
-    height: 35px;
-    background: #F7F9FC;
-    display flex
-    align-items center
-    font-size: 12px;
-    font-family: PingFangSC-Medium, PingFang SC;
-    font-weight: 500;
-    color: #1D2157;
-    padding 0 20px
-    box-sizing border-box
-    >div
-      width 25%
-      @extend .ell
 
-  .trow
-    display flex
-    align-items center
-    padding 0 20px
-    box-sizing border-box
-    padding-top 14px
-    >div
-      width 25%
-      @extend .ell
+
+.purple-tag, .yellow-tag
+  padding-left 14px
+
+.purple-tag::before, .yellow-tag::before
+  content ''
+  left 0
+  top 2px
+  position absolute
+  width 12px
+  height 12px
+  background url("../../img/icon_hj@2x.webp") center center no-repeat
+  background-size cover
+.yellow-tag::before
+  background url("../../img/icon_lj@2x.webp") center center no-repeat
+  background-size cover
+
+
+.purple-border, .yellow-border
+  background url("../../img/icon_yzjd@2x.webp") center center no-repeat
+  background-size cover
+  padding 0 8px
+  font-size: 10px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #3269F0
+  display inline-block
+  height 19px
+  line-height 19px
+.purple-border
+  color: #F8BA34;
+
+
+.media-cell
+  display flex
+  justify-content center
+  img
+    width 14px
+    height 14px
+    display block
+    cursor pointer
+    margin-right 12px
+  .disabled-icon
+    filter: gray;
+    -moz-opacity: .2;
+    opacity: 0.2;
 </style>
