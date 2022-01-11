@@ -70,6 +70,7 @@ export const init = (t: any) => {
 
   const isShowMenu = ref(false)
   const isShowLocalMenu = ref(false)
+  const isShowNetworkMenu = ref(false)
 
   const triggerMenu = (bool: boolean) => {
     isShowMenu.value = bool
@@ -77,13 +78,21 @@ export const init = (t: any) => {
   const triggerLocaleMenu = (bool: boolean) => {
     isShowLocalMenu.value = bool
   }
+  const triggerNetworkMenu = (bool: boolean) => {
+    isShowNetworkMenu.value = bool
+  }
+  const networkType = ref('test')
+
   return {
+    networkType,
     linkList,
     route,
     isShowMenu,
     isShowLocalMenu,
+    isShowNetworkMenu,
     triggerMenu,
     triggerLocaleMenu,
+    triggerNetworkMenu,
     onConnectAndLogin,
     routerTo,
   }

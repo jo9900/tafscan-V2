@@ -7,12 +7,15 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 const {
+  networkType,
   linkList,
   route,
   isShowMenu,
   isShowLocalMenu,
+  isShowNetworkMenu,
   triggerMenu,
   triggerLocaleMenu,
+  triggerNetworkMenu,
   onConnectAndLogin,
   routerTo,
 } = init(t)
@@ -21,6 +24,11 @@ const store = useStore()
 
 const changeLocale = (lang: 'zh' | 'en') => {
   window.localStorage.setItem('locale', lang)
+  window.location.reload()
+}
+const changeNetwork = (type: 'main' | 'test') => {
+  networkType.value = type
+  window.localStorage.setItem('network', type)
   window.location.reload()
 }
 const hoverLink = ref(-1)
@@ -34,14 +42,35 @@ const leave = ():true=> {
 const hideMenus = ()=> {
   leave()
   triggerLocaleMenu(false)
+  triggerNetworkMenu(false)
 }
 </script>
 
 <template>
   <div class="header-wrap">
     <div class="header" @mouseleave="hideMenus">
-      <div class="logo" @click="routerTo('/home')">
+      <div @click="routerTo('/home')">
         <img class="logo-icon" src="@pc/img/nav_pic_logo@2x.png" alt="TAF CAHIN LOGO" />
+      </div>
+      <div class="network-wrap" @mouseleave="triggerNetworkMenu(false)">
+        <div
+          class="network"
+          @mouseenter="leave() && triggerNetworkMenu(true)"
+        >
+          {{ networkType === 'test'? '测试网' : '主网'}}
+          <img src="@pc/img/icon_more_sq@2x.png" height="10" width="10" />
+        </div>
+        <div
+          :class="[
+              'networkMenu animate__animated animate__faster',
+              { animate__fadeIn: isShowNetworkMenu },
+            ]"
+          @mouseleave="triggerNetworkMenu(false)"
+          v-show="isShowNetworkMenu"
+        >
+          <a class="menu-btn" v-if="networkType === 'test'" role="button" @click="changeNetwork('main')">主网</a>
+          <a class="menu-btn" v-else role="button" @click="changeNetwork('test')">测试网</a>
+        </div>
       </div>
       <div class="links-wrap">
         <a
@@ -72,25 +101,25 @@ const hideMenus = ()=> {
           <img src="@pc/img/Icon_gj@2x.png" height="24" width="24" />
           <div class="locale-name">{{ currentLocale === 'zh'? '中文' : 'English' }}</div>
           <img src="@pc/img/icon_more_sq@2x.png" height="10" width="10" />
-          <div
-            :class="[
+        </a>
+        <div
+          :class="[
               'menu animate__animated animate__faster',
               { animate__fadeIn: isShowLocalMenu },
             ]"
-            @mouseleave="triggerLocaleMenu(false)"
-            v-show="isShowLocalMenu"
-          >
-            <a class="menu-btn" role="button" @click="changeLocale('zh')">简体中文</a>
-            <a class="menu-btn" role="button" @click="changeLocale('en')">English</a>
-          </div>
-        </a>
+          @mouseleave="triggerLocaleMenu(false)"
+          v-show="isShowLocalMenu"
+        >
+          <a class="menu-btn" role="button" @click="changeLocale('zh')">简体中文</a>
+          <a class="menu-btn" role="button" @click="changeLocale('en')">English</a>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style lang="stylus" scoped>
- @import "~@pc/stylus/variable.styl"
+@import "~@pc/stylus/variable.styl"
 .header-wrap
   width 100%
   background #fff
@@ -109,6 +138,7 @@ const hideMenus = ()=> {
     align-items center
     width $visualWidth
     .locale-wrap
+      position relative
       margin-left auto
       height 100%
       display flex
@@ -132,11 +162,37 @@ const hideMenus = ()=> {
         display inline-block
         margin-right 2px
 
-   .logo-icon
+    .logo-icon
         display block
         height: 36.8px
         width: 120px
         margin-right 20px
+
+    .network-wrap
+      width: 74px;
+      height: 25px;
+      background: #FFFFFF;
+      border-radius: 3px;
+      border: 1px solid #9498AB;
+      display flex
+      justify-content center
+      align-items center
+      cursor pointer
+      font-size: 12px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #1D2157;
+      position relative
+    .networkMenu
+      width: 147px;
+      background: #FFFFFF;
+      position absolute
+      left 0
+      top 26px
+      z-index 1000
+      box-shadow: 0px 16px 16px 0px rgba(26, 36, 49, 0.04), 0px 4px 16px 0px rgba(26, 36, 49, 0.08);
+      border-radius: 1px;
+
 .header .links-wrap
   flex-wrap: nowrap;
   display flex
@@ -171,22 +227,22 @@ const hideMenus = ()=> {
   top 60px
   z-index 1000
   box-shadow: 0px 4px 16px 0px rgba(26, 36, 49, 0.08)
-  .menu-btn
-    display block
-    box-sizing border-box
-    width 100%
-    font-size: 14px;
-    font-family: PingFangSC-Regular, PingFang SC;
-    font-weight: 400;
-    color: #9498AB;
-    cursor pointer
-    user-select none
-    height 40px
-    text-align left
-    line-height 40px
-    padding-left 16px
-    &:hover
-      background: #F0F2F5;
-      color: #1D2157;
+.menu-btn
+  display block
+  box-sizing border-box
+  width 100%
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #9498AB;
+  cursor pointer
+  user-select none
+  height 40px
+  text-align left
+  line-height 40px
+  padding-left 16px
+  &:hover
+    background: #F0F2F5;
+    color: #1D2157;
 
 </style>
