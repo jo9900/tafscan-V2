@@ -71,7 +71,7 @@ const hideMenus = ()=> {
         <a class="locale" @mouseenter="leave() && triggerLocaleMenu(true)">
           <img src="@pc/img/Icon_gj@2x.png" height="24" width="24" />
           <div class="locale-name">{{ currentLocale === 'zh'? '中文' : 'English' }}</div>
-          <img src="@pc/img/icon_more_sq@2x.png" height="24" width="24" />
+          <img src="@pc/img/icon_more_sq@2x.png" height="10" width="10" />
           <div
             :class="[
               'menu animate__animated animate__faster',
@@ -125,6 +125,7 @@ const hideMenus = ()=> {
         font-family: PingFangSC-Regular, PingFang SC;
         font-weight: 400;
         color: #1D2157;
+        margin 0 4px
       .locale-icon
         width: 32px
         height: 32px
