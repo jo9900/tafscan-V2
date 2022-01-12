@@ -1,6 +1,6 @@
 
 <script setup lang="ts">
-import { Search } from "@/pages/pc/components";
+import  * as Element from '@pc/components'
 const onSearch = () => {
   // 父组件的请求事件
 }
@@ -10,7 +10,7 @@ const onSearch = () => {
   <div class="wrap">
     <div class="title-wrap">
       <div class="title">区块</div>
-      <Search class="search" @onSearch="onSearch"   />
+      <Element.Search class="search" @onSearch="onSearch"   />
     </div>
     <div class="content-wrap">
       <div class="table-wrap">
@@ -39,7 +39,8 @@ const onSearch = () => {
               MathWallet
             </div>
             <div class="tcell table-blue">
-              查看
+              <div>查看</div>
+              <Element.Tag>123</Element.Tag>
             </div>
             <div class="tcell table-default">
               842,331 TAFT
