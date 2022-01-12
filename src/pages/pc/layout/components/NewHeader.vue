@@ -10,13 +10,10 @@ const {
   networkType,
   linkList,
   route,
-  isShowMenu,
   isShowLocalMenu,
   isShowNetworkMenu,
-  triggerMenu,
   triggerLocaleMenu,
   triggerNetworkMenu,
-  onConnectAndLogin,
   routerTo,
 } = init(t)
 
@@ -91,7 +88,12 @@ const hideMenus = ()=> {
             v-show="i === hoverLink"
             role="menu"
           >
-            <a class="menu-btn" role="menuitem" v-for="sublink in link.children" :key="sublink.path">{{ sublink.text }}</a>
+            <a class="menu-btn"
+               role="menuitem"
+               @click="routerTo(sublink.path)"
+               v-for="sublink in link.children"
+               :key="sublink.path"
+            >{{ sublink.text }}</a>
           </div>
         </a>
       </div>

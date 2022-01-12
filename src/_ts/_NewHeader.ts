@@ -58,23 +58,16 @@ export const init = (t: any) => {
   const route = useRoute()
   const store = useStore()
 
-  const onConnectAndLogin = async () => {
-    await store.dispatch('connect')
-    // await router.push('/center')
-  }
 
   const router = useRouter()
   const routerTo = (path: string) => {
+    if (!path) return
     router.push(path)
   }
 
-  const isShowMenu = ref(false)
   const isShowLocalMenu = ref(false)
   const isShowNetworkMenu = ref(false)
 
-  const triggerMenu = (bool: boolean) => {
-    isShowMenu.value = bool
-  }
   const triggerLocaleMenu = (bool: boolean) => {
     isShowLocalMenu.value = bool
   }
@@ -87,13 +80,10 @@ export const init = (t: any) => {
     networkType,
     linkList,
     route,
-    isShowMenu,
     isShowLocalMenu,
     isShowNetworkMenu,
-    triggerMenu,
     triggerLocaleMenu,
     triggerNetworkMenu,
-    onConnectAndLogin,
     routerTo,
   }
 }

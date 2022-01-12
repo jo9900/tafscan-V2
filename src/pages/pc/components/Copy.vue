@@ -33,7 +33,6 @@ onBeforeUnmount(()=> {
 <template>
   <ui-icon @click="onCopy" class="copy_icon">content_copy</ui-icon>
   <div class="copy-state-wrap" v-if="isCopied">
-    <img class="icon" src="@m/img/m_success.png" alt="success" />
     <div>{{ t('text48') }}</div>
   </div>
 </template>
