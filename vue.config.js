@@ -87,6 +87,8 @@ module.exports = {
       .set('@pc', path.join(__dirname, './src/pages/pc'))
       .set('@m', path.join(__dirname, './src/pages/m'))
       .set('vue-i18', 'vue-i18n/dist/vue-i18n.cjs.js')
+      .set('balm-ui-plus', 'balm-ui/dist/balm-ui-plus.js')
+      .set('balm-ui-css', 'balm-ui/dist/balm-ui.css')
 
     config.when(process.env.NODE_ENV === 'production', (config) => {
       config.optimization.minimizer('terser').tap((args) => {

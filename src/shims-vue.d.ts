@@ -9,3 +9,5 @@ declare module '*.json' {
   export default value
 }
 declare module 'moment'
+declare module 'balm-ui'
+declare module 'balm-ui-plus'

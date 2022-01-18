@@ -4,6 +4,9 @@ import  * as Element from '@pc/components'
 const onSearch = () => {
   // 父组件的请求事件
 }
+const changePage = (pageNum:number) => {
+
+}
 </script>
 
 <template>
@@ -38,9 +41,9 @@ const onSearch = () => {
             <div class="tcell table-blue">
               MathWallet
             </div>
-            <div class="tcell table-blue">
+            <div class="tcell table-blue tag">
               <div>查看</div>
-              <Element.Tag>123</Element.Tag>
+              <Element.Tag :class="true?'show' : ''">123</Element.Tag>
             </div>
             <div class="tcell table-default">
               842,331 TAFT
@@ -54,6 +57,7 @@ const onSearch = () => {
           </li>
         </ul>
       </div>
+      <Element.Pagination :pageNum="2" :totalPageNum="11" @changePage="changePage" />
     </div>
   </div>
 </template>
@@ -79,6 +83,10 @@ const onSearch = () => {
   .search
     margin-left auto
 .content-wrap
+  display flex
+  flex-direction column
+  justify-content space-between
+  min-height 654px
   padding 20px 22px
   width: $visualWidth
   background: #FFFFFF;

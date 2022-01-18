@@ -12,6 +12,10 @@ const { t } = useI18n()
 
 <style scoped lang="stylus">
 .tag-wrap
+  display none
+  position absolute
+  top 26px
+  z-index 24
   background: #F7F9FC;
   padding 6px 15px
   border: 1px solid #d2d5dd;
@@ -22,12 +26,14 @@ const { t } = useI18n()
   font-weight: 400;
   color: #9498AB;
   line-height 16px
+  left 50%
+  transform translate(-50%)
   &:before
     box-sizing: content-box;
     width: 0px;
     height: 0px;
     position: absolute;
-    top: 1px
+    top: -16px
     left 50%
     padding:0;
     border-bottom: 8px solid  #d2d5dd;
@@ -44,7 +50,7 @@ const { t } = useI18n()
     width: 0px;
     height: 0px;
     position: absolute;
-    top: 1px
+    top: -16px
     left 50%
     padding:0;
     border-bottom:9px solid #F7F9FC;
